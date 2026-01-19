@@ -56,7 +56,7 @@ export default function PriorityPartnerCard({ partner }: PriorityPartnerCardProp
           <div className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f59e0b] to-[#fbbf24] px-4 py-2 shadow-lg">
             <Star className="w-4 h-4 text-white fill-white" aria-hidden="true" />
             <span className="text-xs font-semibold text-white uppercase tracking-wide">
-              Top Priority Partner
+              Priority Capital Partner
             </span>
           </div>
         </motion.div>
@@ -96,7 +96,7 @@ export default function PriorityPartnerCard({ partner }: PriorityPartnerCardProp
           {/* Priority Label */}
           <div className="mb-4">
             <span className="inline-block px-3 py-1 text-xs font-semibold text-[#f59e0b] bg-amber-50 rounded-full">
-              Primary Lending Partner
+              Priority Capital Partner
             </span>
           </div>
 
@@ -119,7 +119,7 @@ export default function PriorityPartnerCard({ partner }: PriorityPartnerCardProp
                 className="group/video relative w-full aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-[#1e40af] to-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-[#f59e0b] focus:ring-offset-2"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                aria-label="Watch WeFi partnership video - Opens video modal"
+                aria-label="Explore Priority Funding - Opens video modal"
                 role="button"
                 tabIndex={0}
               >
@@ -140,7 +140,7 @@ export default function PriorityPartnerCard({ partner }: PriorityPartnerCardProp
                       <Play className="w-10 h-10 text-white ml-1" />
                     </div>
                     <span className="text-sm font-medium text-white opacity-0 group-hover/video:opacity-100 transition-opacity">
-                      Watch Partnership Story
+                      Explore Priority Funding
                     </span>
                   </motion.div>
                 </div>

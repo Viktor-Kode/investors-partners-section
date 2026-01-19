@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { 
   ExternalLink, 
+  ArrowRight,
   Sparkles,
   TrendingUp,
   Users,
@@ -20,6 +21,7 @@ export default function TechPartnerCard({ partner }: TechPartnerCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   const techBadges = [
+    'Fractional Real Estate',
     'Blockchain',
     'NFTs',
     'Crowdfunding',
@@ -153,39 +155,41 @@ export default function TechPartnerCard({ partner }: TechPartnerCardProps) {
           </p>
 
           {/* Technology Integration Badges */}
-          <div className="mb-8">
-            <h4 className="text-sm font-semibold text-[#0a2540] uppercase tracking-wider mb-4 text-center">
-              Technology Integration
-            </h4>
-            <div className="flex flex-wrap justify-center gap-3">
-              {techBadges.map((badge, index) => (
-                <motion.div
-                  key={badge}
-                  className="group relative"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.1, zIndex: 10 }}
-                >
-                  <div className="px-4 py-2 bg-gradient-to-r from-[#00d4aa]/10 to-[#3b82f6]/10 border border-[#00d4aa]/30 rounded-lg">
-                    <span className="text-sm font-semibold text-[#0a2540] uppercase tracking-wide">
-                      {badge}
-                    </span>
-                  </div>
-                  {/* Tooltip on hover */}
+          {(partner.features && partner.features.length > 0) || techBadges.length > 0 ? (
+            <div className="mb-8">
+              <h4 className="text-sm font-semibold text-[#0a2540] uppercase tracking-wider mb-4 text-center">
+                Technology Integration
+              </h4>
+              <div className="flex flex-wrap justify-center gap-3">
+                {(partner.features || techBadges).map((badge, index) => (
                   <motion.div
-                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#0a2540] text-white text-xs rounded opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap"
-                    initial={{ opacity: 0, y: 5 }}
-                    whileHover={{ opacity: 1, y: 0 }}
+                    key={badge}
+                    className="group relative"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ scale: 1.1, zIndex: 10 }}
                   >
-                    {badge} Technology
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#0a2540]" />
+                    <div className="px-4 py-2 bg-gradient-to-r from-[#00d4aa]/10 to-[#3b82f6]/10 border border-[#00d4aa]/30 rounded-lg">
+                      <span className="text-sm font-semibold text-[#0a2540] uppercase tracking-wide">
+                        {badge}
+                      </span>
+                    </div>
+                    {/* Tooltip on hover */}
+                    <motion.div
+                      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#0a2540] text-white text-xs rounded opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap"
+                      initial={{ opacity: 0, y: 5 }}
+                      whileHover={{ opacity: 1, y: 0 }}
+                    >
+                      {badge} Technology
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#0a2540]" />
+                    </motion.div>
                   </motion.div>
-                </motion.div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+          ) : null}
 
           {/* Future-Focused Highlights */}
           <div className="mb-6">
@@ -212,20 +216,32 @@ export default function TechPartnerCard({ partner }: TechPartnerCardProps) {
             </div>
           </div>
 
-          {/* Website Link */}
-          {partner.website && (
-            <div className="flex justify-center">
+
+          {/* Dual CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {partner.website && (
               <a
                 href={partner.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#00d4aa] to-[#3b82f6] text-white font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-[#00d4aa]/50"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#00d4aa] text-[#00d4aa] font-semibold rounded-lg transition-all hover:bg-[#00d4aa] hover:text-white hover:shadow-lg hover:shadow-[#00d4aa]/50 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] focus:ring-offset-2"
               >
-                Visit Website
+                Explore Platform
                 <ExternalLink className="w-4 h-4" />
               </a>
-            </div>
-          )}
+            )}
+            {partner.affiliateLink && (
+              <a
+                href={partner.affiliateLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#00d4aa] to-[#3b82f6] text-white font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-[#00d4aa]/50 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] focus:ring-offset-2"
+              >
+                Get Started
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            )}
+          </div>
         </div>
 
         {/* Glow Pulse Effect */}

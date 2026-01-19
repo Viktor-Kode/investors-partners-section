@@ -4,15 +4,17 @@ import { motion } from 'framer-motion';
 import { Building2 } from 'lucide-react';
 import { lendingPartners } from '@/lib/constants';
 import PriorityPartnerCard from '@/components/ui/PriorityPartnerCard';
-import StandardPartnerCard from '@/components/ui/StandardPartnerCard';
+import LMXSolutionCard from '@/components/ui/LMXSolutionCard';
+import DreamsBusinessCard from '@/components/ui/DreamsBusinessCard';
 
 export default function PartnersGrid() {
   const wefiPartner = lendingPartners.find((p) => p.id === 'wefi');
-  const otherLendingPartners = lendingPartners.filter((p) => p.id !== 'wefi');
+  const lmxPartner = lendingPartners.find((p) => p.id === 'lmx');
+  const dreamsPartner = lendingPartners.find((p) => p.id === 'dreams');
 
   return (
     <div className="bg-white">
-      {/* Lending & Financial Partners Section */}
+      {/* Strategic Lending Partners Section */}
       <section className="py-20" id="partners">
         <div className="container mx-auto px-4 relative">
           {/* Section Header */}
@@ -38,10 +40,10 @@ export default function PartnersGrid() {
             </motion.div>
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#0a2540] mb-2">
-                Lending & Financial Partners
+                Strategic Lending Partners
               </h2>
               <p className="text-lg text-[#1f2937]">
-                Primary capital access providers
+                Exclusive access to comprehensive financial solutions
               </p>
             </div>
           </motion.div>
@@ -53,14 +55,15 @@ export default function PartnersGrid() {
               <PriorityPartnerCard partner={wefiPartner} />
             )}
 
-            {/* Standard Partner Cards */}
-            {otherLendingPartners.map((partner, index) => (
-              <StandardPartnerCard
-                key={partner.id}
-                partner={partner}
-                index={index}
-              />
-            ))}
+            {/* LMX Solution Card */}
+            {lmxPartner && (
+              <LMXSolutionCard partner={lmxPartner} index={0} />
+            )}
+
+            {/* Dreams Business Resources Card */}
+            {dreamsPartner && (
+              <DreamsBusinessCard partner={dreamsPartner} index={1} />
+            )}
           </div>
         </div>
       </section>
