@@ -14,10 +14,10 @@ export default function CTA() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <h2 className="mb-4 text-4xl font-bold text-white md:text-5xl">
+          <h2 className="mb-4 text-4xl font-bold text-white md:text-5xl" style={{ color: '#ffffff' }}>
             Explore Partnership Opportunities
           </h2>
-          <p className="mb-4 text-xl text-white">
+          <p className="mb-4 text-xl text-white" style={{ color: '#ffffff' }}>
             Join our network of strategic partners and investors driving innovation forward.
           </p>
           <motion.div

@@ -130,6 +130,7 @@ export default function Hero() {
                         },
                       },
                     }}
+                    className="text-white"
                   >
                     {'Building Financial Futures Together'
                       .split(' ')
@@ -145,7 +146,7 @@ export default function Hero() {
                               transition: { duration: 0.5 },
                             },
                           }}
-                          className="inline-block mr-2"
+                          className="inline-block mr-2 text-white"
                         >
                           {word}
                         </motion.span>
@@ -175,6 +176,7 @@ export default function Hero() {
                         },
                       },
                     }}
+                    className="text-white"
                   >
                     {siteConfig.description.split('. ').map((sentence, i) => (
                       <motion.span
@@ -183,6 +185,7 @@ export default function Hero() {
                           hidden: { opacity: 0 },
                           visible: { opacity: 1 },
                         }}
+                        className="text-white"
                       >
                         {sentence}
                         {i < siteConfig.description.split('. ').length - 1 ? '. ' : ''}

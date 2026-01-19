@@ -71,7 +71,8 @@ export default function StrategicPartnersSection() {
             </motion.h2>
           </motion.div>
           <motion.p
-            className="text-lg md:text-xl text-gray-300 mt-4"
+            className="text-lg md:text-xl text-white mt-4"
+            style={{ color: '#ffffff' }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
