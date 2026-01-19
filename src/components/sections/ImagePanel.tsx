@@ -100,19 +100,17 @@ export default function ImagePanel() {
           initial={{ scale: 0, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
+          animate={{
+            scale: hoveredDot === dot.id ? [1, 1.3, 1] : [0.95, 1.05, 0.95],
+          }}
           transition={{
             delay: dot.delay,
             duration: 0.5,
             type: 'spring',
             stiffness: 200,
-          }}
-          animate={{
-            scale: hoveredDot === dot.id ? [1, 1.3, 1] : [0.95, 1.05, 0.95],
-          }}
-          transition={{
             scale: {
               duration: 2,
-              repeat: Infinity,
+              repeat: Number.POSITIVE_INFINITY,
               ease: 'easeInOut',
             },
           }}

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Target, Shield, TrendingUp, Infinity } from 'lucide-react';
+import { Target, Shield, TrendingUp, Infinity as InfinityIcon } from 'lucide-react';
 import { useState } from 'react';
 
 interface Principle {
@@ -36,7 +36,7 @@ const principles: Principle[] = [
   },
   {
     id: 'longterm',
-    icon: Infinity,
+    icon: InfinityIcon,
     title: 'Long-Term Value',
     description: 'Sustainable partnerships built to last',
     color: 'blue',
@@ -97,11 +97,19 @@ export default function CorePrinciples({ onPrincipleHover }: CorePrinciplesProps
                     scale: isHovered ? [1, 1.1, 1] : 1,
                     rotate: isHovered ? [0, 5, -5, 0] : 0,
                   }}
-                  transition={{
-                    duration: 2,
-                    repeat: isHovered ? Infinity : 0,
-                    ease: 'easeInOut',
-                  }}
+                  transition={
+                    isHovered
+                      ? {
+                          duration: 2,
+                          repeat: Number.POSITIVE_INFINITY,
+                          ease: 'easeInOut',
+                        }
+                      : {
+                          duration: 2,
+                          repeat: 0,
+                          ease: 'easeInOut',
+                        }
+                  }
                 >
                   <Icon className="w-6 h-6 text-white" />
                 </motion.div>

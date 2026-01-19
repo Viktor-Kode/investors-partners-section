@@ -49,9 +49,12 @@ export default function StrategicPartnersSection() {
             </motion.div>
             <motion.h2
               className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide"
-              initial={{ opacity: 0, x: [-2, 2, -2, 2, 0] }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
+              animate={{
+                x: [0, -2, 2, -2, 2, 0],
+              }}
               transition={{
                 x: { duration: 0.3, times: [0, 0.2, 0.4, 0.6, 0.8, 1] },
                 opacity: { duration: 0.5 },
