@@ -6,7 +6,7 @@ export interface Partner {
   website?: string;
   affiliateLink?: string;
   priority: 'high' | 'medium' | 'low';
-  category: 'lending' | 'technology';
+  category: 'lending' | 'technology' | 'investment';
   tagline?: string;
   location?: string;
   services?: string[];
@@ -17,16 +17,47 @@ export interface Partner {
   exploreLink?: string;
 }
 
-export const lendingPartners: Partner[] = [
+export interface InvestmentPartner {
+  id: string;
+  name: string;
+  logo: string;
+  description: string;
+  hasVideo?: boolean;
+  videoUrl?: string;
+  currentPrice: string;
+  priceLabel: string;
+  projection: string;
+  projectionLabel: string;
+  highlights: string[];
+  disclaimer: string;
+  tagline?: string;
+}
+
+export const investmentPartners: InvestmentPartner[] = [
   {
     id: 'wefi',
     name: 'WeFi',
     logo: '/images/partners/wefi-logo.svg',
-    description: 'Primary digital lending platform for ScoreUp RiseUp, providing innovative capital access solutions that power our growth.',
-    priority: 'high',
-    category: 'lending',
+    description: 'Exclusive investment opportunity in a growing fintech platform through WeFi\'s Initial Token Offering (ITO). Early-stage access to a company positioned for significant growth in the global financial technology sector.',
     hasVideo: true,
+    videoUrl: '/videos/wefi.mp4',
+    currentPrice: '$0.60',
+    priceLabel: 'Current Price per Coin',
+    projection: 'Double Digits',
+    projectionLabel: 'Projected Growth',
+    tagline: 'Investment Opportunity: WeFi ITO',
+    highlights: [
+      'Early-stage investment in growing fintech platform',
+      'ITO (Initial Token Offering) structure',
+      'Projected significant appreciation potential',
+      'Exclusive access through ScoreUp RiseUp',
+      'Global fintech expansion opportunity',
+    ],
+    disclaimer: 'Note: WeFi banking solutions are not yet available in the United States. This is strictly an investment opportunity in the company\'s growth. Investment involves risk. Projections are not guarantees. Past performance does not equal future results. Consult a financial advisor before investing.',
   },
+];
+
+export const lendingPartners: Partner[] = [
   {
     id: 'lmx',
     name: 'LMX Solution',
@@ -49,7 +80,7 @@ export const lendingPartners: Partner[] = [
       'AR Financing',
       'Asset Based Lending',
     ],
-    protectionStatement: 'We secure optimal terms through our exclusive network relationships without compromising your business health or personal credit.',
+    protectionStatement: 'We secure optimal terms through volume relationships while protecting your business health.',
   },
   {
     id: 'dreams',

@@ -1,21 +1,19 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Building2 } from 'lucide-react';
+import { Shield } from 'lucide-react';
 import { lendingPartners } from '@/lib/constants';
-import PriorityPartnerCard from '@/components/ui/PriorityPartnerCard';
 import LMXSolutionCard from '@/components/ui/LMXSolutionCard';
 import DreamsBusinessCard from '@/components/ui/DreamsBusinessCard';
 
 export default function PartnersGrid() {
-  const wefiPartner = lendingPartners.find((p) => p.id === 'wefi');
   const lmxPartner = lendingPartners.find((p) => p.id === 'lmx');
   const dreamsPartner = lendingPartners.find((p) => p.id === 'dreams');
 
   return (
     <div className="bg-white">
-      {/* Strategic Lending Partners Section */}
-      <section className="py-20" id="partners">
+      {/* Strategic Lending Solutions Section */}
+      <section className="py-20" id="lending">
         <div className="container mx-auto px-4 relative">
           {/* Section Header */}
           <motion.div
@@ -36,25 +34,20 @@ export default function PartnersGrid() {
                 ease: 'easeInOut',
               }}
             >
-              <Building2 className="h-8 w-8 text-[#1e40af]" />
+              <Shield className="h-8 w-8 text-[#1e40af]" />
             </motion.div>
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#0a2540] mb-2">
-                Strategic Lending Partners
+                Strategic Lending Solutions
               </h2>
               <p className="text-lg text-[#1f2937]">
-                Exclusive access to comprehensive financial solutions
+                Comprehensive financing through our exclusive banking network
               </p>
             </div>
           </motion.div>
 
           {/* Partners Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-            {/* WeFi Priority Card - Spans 2 columns on desktop */}
-            {wefiPartner && (
-              <PriorityPartnerCard partner={wefiPartner} />
-            )}
-
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {/* LMX Solution Card */}
             {lmxPartner && (
               <LMXSolutionCard partner={lmxPartner} index={0} />

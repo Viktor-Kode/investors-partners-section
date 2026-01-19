@@ -44,7 +44,7 @@ export default function LMXSolutionCard({ partner, index }: LMXSolutionCardProps
       <div className="relative p-6">
         {/* Logo */}
         <div className="mb-4">
-          <div className="relative h-16 w-40">
+          <div className="relative h-16 w-40 mb-2">
             <Image
               src={partner.logo}
               alt={`${partner.name} logo`}
@@ -53,14 +53,19 @@ export default function LMXSolutionCard({ partner, index }: LMXSolutionCardProps
               sizes="160px"
             />
           </div>
+          <p className="text-sm font-semibold text-[#1e40af] italic">
+            Your Banking Gateway
+          </p>
         </div>
 
         {/* Tagline */}
-        <div className="mb-4">
-          <h3 className="text-xl font-bold text-[#0a2540] mb-2">
-            {partner.tagline}
-          </h3>
-        </div>
+        {partner.tagline && (
+          <div className="mb-4">
+            <h3 className="text-xl font-bold text-[#0a2540] mb-2">
+              {partner.tagline}
+            </h3>
+          </div>
+        )}
 
         {/* Key Message Box */}
         {partner.networkAccess && partner.networkAccess.length > 0 && (
