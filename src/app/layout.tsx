@@ -17,6 +17,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ScoreUp RiseUp | Investors & Partners",
   description: "Strategic alliances powering ScoreUp Riseup's growth through trusted partnerships with leading investors and strategic partners.",
+  icons: {
+    icon: '/images/logo.png',
+    shortcut: '/images/logo.png',
+    apple: '/images/logo.png',
+  },
 };
 
 export default function RootLayout({
