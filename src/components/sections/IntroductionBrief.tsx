@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useState } from 'react';
 import { siteConfig } from '@/lib/constants';
 import ImagePanel from './ImagePanel';
@@ -20,7 +20,7 @@ export default function IntroductionBrief() {
 
   const imagePosition = { x: 50, y: 50 };
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -31,19 +31,19 @@ export default function IntroductionBrief() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, x: -20 },
     visible: {
       opacity: 1,
       x: 0,
       transition: {
         duration: 0.6,
-        ease: [0.4, 0, 0.2, 1] as const,
+        ease: [0.4, 0, 0.2, 1],
       },
     },
   };
 
-  const imageVariants = {
+  const imageVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95, x: 20 },
     visible: {
       opacity: 1,
@@ -51,7 +51,7 @@ export default function IntroductionBrief() {
       x: 0,
       transition: {
         duration: 0.8,
-        ease: [0.4, 0, 0.2, 1] as const,
+        ease: [0.4, 0, 0.2, 1],
       },
     },
   };
