@@ -4,11 +4,9 @@ import { motion } from 'framer-motion';
 import { Shield } from 'lucide-react';
 import { lendingPartners } from '@/lib/constants';
 import LMXSolutionCard from '@/components/ui/LMXSolutionCard';
-import DreamsBusinessCard from '@/components/ui/DreamsBusinessCard';
 
 export default function PartnersGrid() {
   const lmxPartner = lendingPartners.find((p) => p.id === 'lmx');
-  const dreamsPartner = lendingPartners.find((p) => p.id === 'dreams');
 
   return (
     <div className="bg-white">
@@ -31,7 +29,7 @@ export default function PartnersGrid() {
               transition={{
                 duration: 2,
                 repeat: Infinity,
-                ease: 'easeInOut',
+                ease: [0.4, 0, 0.6, 1] as const,
               }}
             >
               <Shield className="h-8 w-8 text-[#1e40af]" />
@@ -47,15 +45,10 @@ export default function PartnersGrid() {
           </motion.div>
 
           {/* Partners Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-6 lg:gap-8 max-w-3xl mx-auto">
             {/* LMX Solution Card */}
             {lmxPartner && (
               <LMXSolutionCard partner={lmxPartner} index={0} />
-            )}
-
-            {/* Dreams Business Resources Card */}
-            {dreamsPartner && (
-              <DreamsBusinessCard partner={dreamsPartner} index={1} />
             )}
           </div>
         </div>
