@@ -15,21 +15,26 @@ export default function ConnectionVisualization({
   imagePosition,
 }: ConnectionVisualizationProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Use useScroll with ref - the ref container is always rendered so it can attach
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start end', 'end start'],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    [0, 1, 0]
+  );
 
-  if (!hoveredPrinciple || !principlePositions[hoveredPrinciple]) {
-    return null;
-  }
-
-  const principlePos = principlePositions[hoveredPrinciple];
+  const principlePos = hoveredPrinciple && principlePositions[hoveredPrinciple] 
+    ? principlePositions[hoveredPrinciple] 
+    : null;
 
   return (
     <div ref={containerRef} className="absolute inset-0 pointer-events-none z-10">
+      {principlePos && (
       <svg className="absolute inset-0 w-full h-full">
         <defs>
           <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -81,6 +86,7 @@ export default function ConnectionVisualization({
           style={{ opacity }}
         />
       </svg>
+      )}
     </div>
   );
 }

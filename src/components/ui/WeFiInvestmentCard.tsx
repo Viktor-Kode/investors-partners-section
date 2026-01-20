@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Play, Star, Info, Check, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
+import Image from 'next/image';
 import VideoModal from './VideoModal';
 import InvestmentTimeline from './InvestmentTimeline';
 import type { InvestmentPartner } from '@/lib/constants';
@@ -85,9 +86,14 @@ export default function WeFiInvestmentCard({ partner }: WeFiInvestmentCardProps)
                 ease: 'easeInOut',
               }}
             >
-              <h3 className="text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#f59e0b] bg-clip-text text-transparent">
-                WeFi
-              </h3>
+              <Image
+                src="/images/wefi.jpeg"
+                alt="WeFi Logo"
+                width={200}
+                height={60}
+                className="h-full w-auto object-contain"
+                priority
+              />
             </motion.div>
           </div>
 

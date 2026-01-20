@@ -1,16 +1,8 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/forms";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #1f2937;
-  --primary-navy: #0a2540;
-  --primary-royal: #1e40af;
-  --primary-blue: #3b82f6;
-  --primary-light: #60a5fa;
-  --priority-gold: #f59e0b;
-  --priority-gold-light: #fbbf24;
-  --card-bg: #ffffff;
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
 @theme inline {
@@ -20,35 +12,54 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Manrope', sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  color: var(--primary-navy);
-  line-height: 1.2;
+/* Guarantee Badge Pulse Animation */
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
 }
 
-h1 {
-  font-size: 3rem;
-  font-weight: 700;
+.guarantee-badge-pulse {
+  animation: subtlePulse 8s ease-in-out infinite;
 }
 
-h2 {
-  font-size: 2.25rem;
+/* Network Visualization Animation */
+@keyframes networkFlow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 40;
+  }
 }
 
-h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
+.network-line {
+  stroke-dasharray: 5, 5;
+  animation: networkFlow 3s linear infinite;
 }
 
-p {
-  font-weight: 400;
-  color: var(--foreground);
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .guarantee-badge-pulse,
+  .network-line {
+    animation: none;
+  }
 }

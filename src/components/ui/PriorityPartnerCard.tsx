@@ -74,10 +74,15 @@ export default function PriorityPartnerCard({ partner }: PriorityPartnerCardProp
           {/* Logo Section */}
           <div className="mb-6 flex items-center justify-between">
             {partner.id === 'wefi' ? (
-              <div className="h-16 lg:h-20 flex items-center">
-                <h3 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#0a2540] via-[#1e40af] to-[#3b82f6] bg-clip-text text-transparent">
-                  WeFi
-                </h3>
+              <div className="relative h-16 w-48 lg:h-20 lg:w-56">
+                <Image
+                  src="/images/wefi.jpeg"
+                  alt="WeFi logo"
+                  fill
+                  className="object-contain object-left"
+                  sizes="224px"
+                  priority
+                />
               </div>
             ) : (
               <div className="relative h-16 w-48 lg:h-20 lg:w-56">
