@@ -21,7 +21,7 @@ export default function SmartFundingSolutions() {
           <div className="inline-flex items-center gap-2 mb-4">
             <TrendingUp className="w-6 h-6 text-blue-600" />
             <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
-              Alternative & Revenue-Based Funding
+              Partner-Powered Funding Solutions
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
