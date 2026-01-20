@@ -38,7 +38,7 @@ export default function IntroductionBrief() {
       x: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut',
+        ease: [0.4, 0, 0.2, 1] as const,
       },
     },
   };
@@ -51,7 +51,7 @@ export default function IntroductionBrief() {
       x: 0,
       transition: {
         duration: 0.8,
-        ease: 'easeOut',
+        ease: [0.4, 0, 0.2, 1] as const,
       },
     },
   };
@@ -141,7 +141,7 @@ export default function IntroductionBrief() {
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 2, ease: 'easeOut' }}
+        transition={{ duration: 2, ease: [0.4, 0, 0.2, 1] as const }}
         style={{ originX: 0 }}
       />
     </section>
