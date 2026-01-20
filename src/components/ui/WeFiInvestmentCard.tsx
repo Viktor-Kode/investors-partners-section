@@ -48,13 +48,14 @@ export default function WeFiInvestmentCard({ partner }: WeFiInvestmentCardProps)
           transition={{
             duration: 2,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: [0.4, 0, 0.6, 1] as const,
           }}
         >
-          <div className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f59e0b] to-[#d97706] px-5 py-2.5 shadow-lg">
-            <Star className="w-4 h-4 text-white fill-white" />
-            <span className="text-xs font-bold text-white uppercase tracking-wide">
-              Exclusive Investment Opportunity
+          <div className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f59e0b] to-[#d97706] px-3 py-2 md:px-5 md:py-2.5 shadow-lg">
+            <Star className="w-3 h-3 md:w-4 md:h-4 text-white fill-white flex-shrink-0" />
+            <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wide leading-tight">
+              <span className="hidden sm:inline">Exclusive Investment Opportunity</span>
+              <span className="sm:hidden">Exclusive Opportunity</span>
             </span>
           </div>
         </motion.div>
@@ -70,7 +71,7 @@ export default function WeFiInvestmentCard({ partner }: WeFiInvestmentCardProps)
 
         <div className="p-6 lg:p-8">
           {/* Logo Section with Glow */}
-          <div className="mb-6 flex items-center justify-center">
+          <div className="mb-6 flex items-center justify-center pt-12 sm:pt-0">
             <motion.div
               className="h-20 lg:h-24 flex items-center"
               animate={isHovered ? {
