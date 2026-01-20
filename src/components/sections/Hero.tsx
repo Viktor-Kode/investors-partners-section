@@ -54,7 +54,7 @@ export default function Hero() {
       y: 0,
       transition: {
         duration: prefersReducedMotion ? 0.1 : 0.6,
-        ease: 'easeOut',
+        ease: [0.4, 0, 0.2, 1] as const,
       },
     },
   };
@@ -216,7 +216,7 @@ export default function Hero() {
                     boxShadow: {
                       duration: 3,
                       repeat: Infinity,
-                      ease: 'easeInOut',
+                      ease: [0.4, 0, 0.6, 1] as const,
                     },
                   }}
                 >
