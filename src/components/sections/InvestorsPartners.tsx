@@ -15,7 +15,7 @@ export default function InvestorsPartners() {
     return (
         <motion.div
             id="investors-partners"
-            className="investors-section container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen"
+            className="investors-section min-h-screen"
             initial="hidden"
             animate="enter"
             exit="exit"
