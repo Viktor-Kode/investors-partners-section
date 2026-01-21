@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import VideoModal from './VideoModal';
 import InvestmentTimeline from './InvestmentTimeline';
+import ScheduleButton from './ScheduleButton';
 import type { InvestmentPartner } from '@/lib/constants';
 
 interface WeFiInvestmentCardProps {
@@ -240,6 +241,16 @@ export default function WeFiInvestmentCard({ partner }: WeFiInvestmentCardProps)
               <span>Watch Investment Story</span>
             </motion.button>
           )}
+
+          {/* Schedule Call Button */}
+          <div className="mt-4">
+            <ScheduleButton
+              partnerName={partner.calendlyPrefill?.partnerName || partner.name}
+              meetingType={partner.calendlyPrefill?.meetingType}
+              variant="primary"
+              className="w-full bg-gradient-to-r from-[#3b82f6] to-[#00d4aa] border-none text-white hover:shadow-lg hover:shadow-blue-500/30"
+            />
+          </div>
         </div>
 
         {/* Radial Gradient Background Effect */}

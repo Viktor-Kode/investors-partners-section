@@ -15,6 +15,11 @@ export interface Partner {
   protectionStatement?: string;
   features?: string[];
   exploreLink?: string;
+  calendlyUrl?: string;
+  calendlyPrefill?: {
+    partnerName: string;
+    meetingType: string;
+  };
 }
 
 export interface InvestmentPartner {
@@ -31,6 +36,11 @@ export interface InvestmentPartner {
   highlights: string[];
   disclaimer: string;
   tagline?: string;
+  calendlyUrl?: string;
+  calendlyPrefill?: {
+    partnerName: string;
+    meetingType: string;
+  };
 }
 
 export const investmentPartners: InvestmentPartner[] = [
@@ -54,18 +64,23 @@ export const investmentPartners: InvestmentPartner[] = [
       'Global fintech expansion opportunity',
     ],
     disclaimer: 'Note: WeFi banking solutions are not yet available in the United States. This is strictly an investment opportunity in the company\'s growth. Investment involves risk. Projections are not guarantees. Past performance does not equal future results. Consult a financial advisor before investing.',
+    calendlyUrl: 'https://calendly.com/scoreupriseup/success-session',
+    calendlyPrefill: {
+      partnerName: 'WeFi - Lending Partner',
+      meetingType: 'Funding Consultation'
+    }
   },
 ];
 
 export const lendingPartners: Partner[] = [
   {
-    id: 'lmx',
-    name: 'LMX Solution',
-    logo: '/images/lmx.jpeg',
-    description: 'Exclusive banking network access through our strategic white-label partnership, providing gateway access to comprehensive financial solutions.',
+    id: 'midas',
+    name: 'Midas Financial',
+    logo: '/images/lmx.jpeg', // Keeping original image path for now, assuming user will update or it's a placeholder
+    description: 'Specializing in flexible funding solutions including revenue-based funding, lines of credit, and business expansion capital through our curated network of alternative lenders.',
     priority: 'high',
     category: 'lending',
-    tagline: 'Exclusive Banking Network Access',
+    tagline: 'Business Loans & Financial Solutions',
     networkAccess: [
       'Major National Banks',
       'Regional Banking Institutions',
@@ -81,15 +96,20 @@ export const lendingPartners: Partner[] = [
       'Asset Based Lending',
     ],
     protectionStatement: 'We secure optimal terms through volume relationships while protecting your business health.',
+    calendlyUrl: 'https://calendly.com/scoreupriseup/success-session',
+    calendlyPrefill: {
+      partnerName: 'Midas Financial - Business Loans',
+      meetingType: 'Loan Consultation'
+    }
   },
   {
-    id: 'dreams',
-    name: 'Dreams Business Resources',
-    logo: '/images/dreambusiness.jpeg',
-    description: 'Specializing in flexible funding solutions including revenue-based funding, lines of credit, and business expansion capital through our curated network of alternative lenders.',
+    id: 'lexington',
+    name: 'Lexington Capital Holdings',
+    logo: '/images/dreambusiness.jpeg', // Keeping original image path for now
+    description: 'Providing alternative lending solutions for businesses that need quick access to capital. We focus on potential and performance, not just credit history.',
     priority: 'medium',
     category: 'lending',
-    tagline: 'Alternative & Revenue-Based Funding',
+    tagline: 'Alternative Lending Solutions',
     services: [
       'Revenue Based Funding (MCA)',
       'Lines of Credit',
@@ -97,6 +117,11 @@ export const lendingPartners: Partner[] = [
       'Business Expansion Capital',
     ],
     affiliateLink: 'https://dreamsresources.com/join/?refid=AA3487',
+    calendlyUrl: 'https://calendly.com/scoreupriseup/success-session',
+    calendlyPrefill: {
+      partnerName: 'Lexington Capital - Alternative Lending',
+      meetingType: 'Funding Options'
+    }
   },
 ];
 
@@ -112,13 +137,18 @@ export const technologyPartners: Partner[] = [
     category: 'technology',
     tagline: 'Where technology meets real estate.',
     features: [
-      'Fractional Real Estate Investment',
+      'Fractional Real Estate', // UPDATED
       'Blockchain Integration',
       'NFT-Backed Assets',
-      'Digital Infrastructure',
+      'Crowdfunding',
       'Global Community Expansion',
       'Continual Learning Platforms',
     ],
+    calendlyUrl: 'https://calendly.com/scoreupriseup/success-session',
+    calendlyPrefill: {
+      partnerName: 'VRDa1 - Technology Real Estate',
+      meetingType: 'Tech Investment Call'
+    }
   },
 ];
 

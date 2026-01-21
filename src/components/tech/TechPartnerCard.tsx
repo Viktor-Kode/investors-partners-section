@@ -3,14 +3,15 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { 
-  ExternalLink, 
+import {
+  ExternalLink,
   ArrowRight,
   Sparkles,
   TrendingUp,
   Users,
   BookOpen
 } from 'lucide-react';
+import ScheduleButton from '@/components/ui/ScheduleButton';
 import type { Partner } from '@/lib/constants';
 
 interface TechPartnerCardProps {
@@ -54,12 +55,12 @@ export default function TechPartnerCard({ partner }: TechPartnerCardProps) {
         animate={
           isHovered
             ? {
-                opacity: 1,
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-              }
+              opacity: 1,
+              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+            }
             : {
-                opacity: 0,
-              }
+              opacity: 0,
+            }
         }
         transition={{
           duration: 3,
@@ -155,41 +156,69 @@ export default function TechPartnerCard({ partner }: TechPartnerCardProps) {
           </p>
 
           {/* Technology Integration Badges */}
+          {/* Technology Integration Badges */}
           {(partner.features && partner.features.length > 0) || techBadges.length > 0 ? (
             <div className="mb-8">
               <h4 className="text-sm font-semibold text-[#0a2540] uppercase tracking-wider mb-4 text-center">
                 Technology Integration
               </h4>
               <div className="flex flex-wrap justify-center gap-3">
-                {(partner.features || techBadges).map((badge, index) => (
-                  <motion.div
-                    key={badge}
-                    className="group relative"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.1, zIndex: 10 }}
-                  >
-                    <div className="px-4 py-2 bg-gradient-to-r from-[#00d4aa]/10 to-[#3b82f6]/10 border border-[#00d4aa]/30 rounded-lg">
-                      <span className="text-sm font-semibold text-[#0a2540] uppercase tracking-wide">
-                        {badge}
-                      </span>
-                    </div>
-                    {/* Tooltip on hover */}
+                {(partner.features || techBadges).map((badge, index) => {
+                  const isFractional = badge === 'Fractional Real Estate';
+                  return (
                     <motion.div
-                      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#0a2540] text-white text-xs rounded opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap"
-                      initial={{ opacity: 0, y: 5 }}
-                      whileHover={{ opacity: 1, y: 0 }}
+                      key={badge}
+                      className="group relative"
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      whileHover={{ scale: 1.1, zIndex: 10 }}
                     >
-                      {badge} Technology
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#0a2540]" />
+                      <div className={`px-4 py-2 rounded-lg border flex items-center gap-2 ${isFractional
+                        ? 'bg-gradient-to-r from-[#00d4aa]/20 to-[#3b82f6]/20 border-[#00d4aa] shadow-md'
+                        : 'bg-gradient-to-r from-[#00d4aa]/10 to-[#3b82f6]/10 border-[#00d4aa]/30'
+                        }`}>
+                        {isFractional && (
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#00d4aa]">
+                            <rect x="4" y="10" width="16" height="10" rx="1" fill="currentColor" opacity="0.8" />
+                            <rect x="5" y="11" width="4" height="3" fill="#0f172a" />
+                            <rect x="10" y="11" width="4" height="3" fill="#0f172a" />
+                            <rect x="15" y="11" width="4" height="3" fill="#0f172a" />
+                            <line x1="9" y1="11" x2="9" y2="14" stroke="white" strokeWidth="1" />
+                            <line x1="14" y1="11" x2="14" y2="14" stroke="white" strokeWidth="1" />
+                            <polygon points="4,10 12,5 20,10" fill="#1e40af" />
+                          </svg>
+                        )}
+                        <span className={`text-sm font-semibold uppercase tracking-wide ${isFractional ? 'text-[#00d4aa]' : 'text-[#0a2540]'
+                          }`}>
+                          {badge}
+                        </span>
+                      </div>
+                      {/* Tooltip on hover */}
+                      <motion.div
+                        className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#0a2540] text-white text-xs rounded opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap"
+                        initial={{ opacity: 0, y: 5 }}
+                        whileHover={{ opacity: 1, y: 0 }}
+                      >
+                        {isFractional ? "Ownership divided into shares" : `${badge} Technology`}
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#0a2540]" />
+                      </motion.div>
                     </motion.div>
-                  </motion.div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ) : null}
+
+          {/* Schedule Button */}
+          <div className="mb-8 flex justify-center">
+            <ScheduleButton
+              partnerName={partner.calendlyPrefill?.partnerName || partner.name}
+              meetingType={partner.calendlyPrefill?.meetingType}
+              className="w-full md:w-auto min-w-[250px]"
+            />
+          </div>
 
           {/* Future-Focused Highlights */}
           <div className="mb-6">

@@ -15,13 +15,13 @@ export default function Home() {
       <InvestmentPartnersSection />
       <div id="partners">
         <PartnersGrid />
-      </div>
+        </div>
       <StrategicPartnersSection />
       <PartnershipBenefits />
       <SmartFundingSolutions />
       <div id="contact">
         <CTA />
-      </div>
+        </div>
     </>
   );
 }

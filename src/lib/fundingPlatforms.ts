@@ -16,6 +16,11 @@ export interface FundingPlatform {
     application?: string;
   };
   partnerId?: string;
+  calendlyUrl?: string;
+  calendlyPrefill?: {
+    partnerName: string;
+    meetingType: string;
+  };
 }
 
 export const bankBreezy: FundingPlatform = {
@@ -36,6 +41,11 @@ export const bankBreezy: FundingPlatform = {
   },
   links: {
     primary: "https://bankbreezy.com/funding/?partner-id=DreamsBusinessResources"
+  },
+  calendlyUrl: "https://calendly.com/scoreupriseup/success-session",
+  calendlyPrefill: {
+    partnerName: "BankBreezy - Funding",
+    meetingType: "Funding Consultation"
   }
 };
 
@@ -54,7 +64,12 @@ export const advanceFundNetwork: FundingPlatform = {
     primary: "https://app.advancefundsnetwork.com/partner-landing/RUM6M0A7PxYKrx88JKjMDKudc133",
     application: "https://app.advancefundsnetwork.com/application/J75Mq7P3L8TuoZwgoMIOnKWYUms2?partner=RUM6M0A7PxYKrx88JKjMDKudc133"
   },
-  partnerId: "RUM6M0A7PxYKrx88JKjMDKudc133"
+  partnerId: "RUM6M0A7PxYKrx88JKjMDKudc133",
+  calendlyUrl: "https://calendly.com/scoreupriseup/success-session",
+  calendlyPrefill: {
+    partnerName: "Advance Fund Network",
+    meetingType: "Funding Consultation"
+  }
 };
 
 export const fundingPlatforms: FundingPlatform[] = [

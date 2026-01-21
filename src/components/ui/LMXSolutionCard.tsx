@@ -34,7 +34,7 @@ export default function LMXSolutionCard({ partner, index }: LMXSolutionCardProps
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0a2540" strokeWidth="1"/>
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0a2540" strokeWidth="1" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
@@ -126,6 +126,16 @@ export default function LMXSolutionCard({ partner, index }: LMXSolutionCardProps
             </div>
           </div>
         )}
+
+        {/* Schedule Button */}
+        <div className="mb-3">
+          <ScheduleButton
+            partnerName={partner.calendlyPrefill?.partnerName || partner.name}
+            meetingType={partner.calendlyPrefill?.meetingType}
+            className="w-full"
+            variant="outline"
+          />
+        </div>
 
         {/* CTA Button */}
         <motion.button
