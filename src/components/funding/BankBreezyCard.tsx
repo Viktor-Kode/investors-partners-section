@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Shield, Star, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import ScheduleButton from "@/components/ui/ScheduleButton";
 import { FundingPlatform } from "@/lib/fundingPlatforms";
 
 interface BankBreezyCardProps {
@@ -83,6 +84,16 @@ export default function BankBreezyCard({ platform }: BankBreezyCardProps) {
           </div>
         </motion.div>
       )}
+
+      {/* Schedule Button */}
+      <div className="mb-3">
+        <ScheduleButton
+          partnerName={platform.calendlyPrefill?.partnerName || platform.name}
+          meetingType={platform.calendlyPrefill?.meetingType}
+          className="w-full"
+          variant="outline"
+        />
+      </div>
 
       {/* Primary CTA */}
       <motion.a

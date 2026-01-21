@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Building2, ArrowRight, Shield } from 'lucide-react';
 import { useState } from 'react';
+import ScheduleButton from './ScheduleButton';
 import type { Partner } from '@/lib/constants';
 
 interface LMXSolutionCardProps {
