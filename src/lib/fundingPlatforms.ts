@@ -23,31 +23,7 @@ export interface FundingPlatform {
   };
 }
 
-export const bankBreezy: FundingPlatform = {
-  id: 1,
-  name: "BankBreezy",
-  logo: "/images/funding/bankbreezy-logo.svg", // Will need to be added
-  tagline: "We'll Find You the Best Funding Offer-Guaranteed!",
-  description: "Get the best offer from multiple top business funders through a single application",
-  highlights: [
-    "Single application to multiple funders",
-    "Best offer guarantee",
-    "$500 protection if we can't beat your offer"
-  ],
-  guarantee: {
-    text: "Meet or Beat Guarantee",
-    amount: "$500",
-    terms: "if BankBreezy cannot meet or beat your best funding offer"
-  },
-  links: {
-    primary: "https://bankbreezy.com/funding/?partner-id=DreamsBusinessResources"
-  },
-  calendlyUrl: "https://calendly.com/scoreupriseup/success-session",
-  calendlyPrefill: {
-    partnerName: "BankBreezy - Funding",
-    meetingType: "Funding Consultation"
-  }
-};
+// ... (interfaces remain)
 
 export const advanceFundNetwork: FundingPlatform = {
   id: 2,
@@ -73,6 +49,5 @@ export const advanceFundNetwork: FundingPlatform = {
 };
 
 export const fundingPlatforms: FundingPlatform[] = [
-  bankBreezy,
   advanceFundNetwork
 ];

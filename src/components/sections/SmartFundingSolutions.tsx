@@ -2,9 +2,8 @@
 
 import { motion } from "framer-motion";
 import { TrendingUp } from "lucide-react";
-import BankBreezyCard from "@/components/funding/BankBreezyCard";
 import AdvanceFundNetworkCard from "@/components/funding/AdvanceFundNetworkCard";
-import { bankBreezy, advanceFundNetwork } from "@/lib/fundingPlatforms";
+import { advanceFundNetwork } from "@/lib/fundingPlatforms";
 
 export default function SmartFundingSolutions() {
   return (
@@ -33,10 +32,7 @@ export default function SmartFundingSolutions() {
         </motion.div>
 
         {/* Funding Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
-          {/* BankBreezy Card */}
-          <BankBreezyCard platform={bankBreezy} />
-
+        <div className="flex justify-center max-w-4xl mx-auto">
           {/* Advance Fund Network Card */}
           <AdvanceFundNetworkCard platform={advanceFundNetwork} />
         </div>
@@ -51,17 +47,9 @@ export default function SmartFundingSolutions() {
         >
           <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
-              Compare Your Options
+              Feature Highlights
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">BankBreezy</h4>
-                <ul className="space-y-1 text-sm text-gray-600">
-                  <li>• Best Offer Guarantee</li>
-                  <li>• Single Application</li>
-                  <li>• $500 Protection</li>
-                </ul>
-              </div>
+            <div className="flex justify-center">
               <div>
                 <h4 className="font-semibold text-gray-900 mb-2">Advance Fund Network</h4>
                 <ul className="space-y-1 text-sm text-gray-600">

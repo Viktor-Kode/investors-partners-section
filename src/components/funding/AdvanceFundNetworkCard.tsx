@@ -37,7 +37,7 @@ export default function AdvanceFundNetworkCard({ platform }: AdvanceFundNetworkC
       {/* Logo */}
       <div className="mb-6 flex items-center justify-center h-16">
         <Image
-          src="/images/afn.jpeg"
+          src="/images/lmx.jpeg"
           alt="Advance Fund Network Logo"
           width={200}
           height={64}
